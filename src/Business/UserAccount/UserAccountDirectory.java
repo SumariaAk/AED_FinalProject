@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.CommunityCourier;
+package Business.UserAccount;
 
 /**
  *
- * @author akash
+ * @author DELL
  */
-public class CourierMan {
+public class UserAccountDirectory {
     
 }

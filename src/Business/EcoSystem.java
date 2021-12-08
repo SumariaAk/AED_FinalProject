@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.CommunityHouse;
+package Business;
 
 /**
  *
- * @author ujjwal
+ * @author DELL
  */
-public class HouseDirectory {
+public class EcoSystem {
     
 }

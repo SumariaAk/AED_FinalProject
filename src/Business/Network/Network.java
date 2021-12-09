@@ -5,6 +5,8 @@
  */
 package Business.Network;
 
+import Business.Enterprise.EnterpriseDirectory;
+
 
 /**
  *
@@ -13,6 +15,15 @@ package Business.Network;
 public class Network {
     private String name;
     private double population;
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+    private EnterpriseDirectory enterpriseDirectory;
 
     public String getName() {
         return name;

@@ -5,6 +5,8 @@
  */
 package Business.Employee;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author DELL
@@ -21,7 +23,7 @@ public class EmployeeDirectory {
         return employeeList;
     }
     
-    public Employee createEmployee(String name, String email, String location, int phoneNo){
+    public Employee createEmployee(String name, String email, int phoneNo, String location){
         Employee employee = new Employee ();
         employee.setName(name);
         employee.setEmail(email);

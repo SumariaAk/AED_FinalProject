@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Vaccine {
 
+    //Vaccine details
     private String name;
     private float price;
     private String description;
@@ -24,7 +25,7 @@ public class Vaccine {
     public String getVaccineCode(){
         return vaccineCode;
     }
-    
+    //Constructor
     public Vaccine (String name, float price, Date expiryDate, int batch, String vaccineCode, String description) {
         this.batch = batch;
         this.price = price;

@@ -10,5 +10,25 @@ package Business.Employee;
  * @author DELL
  */
 public class EmployeeDirectory {
+
+  private ArrayList<Employee> employeeList;
+    
+    public EmployeeDirectory(){
+        employeeList =  new ArrayList();
+    }
+
+    public ArrayList<Employee> getEmployeeList() {
+        return employeeList;
+    }
+    
+    public Employee createEmployee(String name, String email, String location, int phoneNo){
+        Employee employee = new Employee ();
+        employee.setName(name);
+        employee.setEmail(email);
+        employee.setPhoneNo(phoneNo);
+        employee.setLocation(location);
+        employeeList.add(employee);
+        return employee;
+    }
     
 }

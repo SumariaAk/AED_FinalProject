@@ -5,6 +5,8 @@
  */
 package Business.Batch;
 
+import Business.Vaccine.Vaccine;
+
 /**
  *
  * @author DELL

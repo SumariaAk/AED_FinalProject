@@ -6,6 +6,8 @@
 package Business.UserAccount;
 
 import Business.Employee.Employee;
+import Business.Role.Role;
+import Business.WorkQueue.WorkQueue;
 
 
 /**
@@ -17,6 +19,24 @@ public class UserAccount {
     private String username;
     private String password;
     private Employee employee;
+    private Role role;
+    private WorkQueue workQueue;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
 
 
     public String getUsername() {

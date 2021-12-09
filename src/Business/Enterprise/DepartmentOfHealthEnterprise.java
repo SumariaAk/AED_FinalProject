@@ -8,18 +8,21 @@ package Business.Enterprise;
 import Business.Role.Role;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author vinithiteshharsora
  */
-public class HospitalEnterprise extends Enterprise {
+public class DepartmentOfHealthEnterprise extends Enterprise {
     
-    public HospitalEnterprise(String name){
-        super(name,Enterprise.EnterpriseType.Hospital);
+    public DepartmentOfHealthEnterprise(String name){
+        super(name,Enterprise.EnterpriseType.DepartmentOfHealth);
     }
+    
 
     public ArrayList<Role> getSupportedRole() {
         return null;
     }
+    }
     
-}
+

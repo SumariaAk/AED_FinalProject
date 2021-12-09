@@ -5,7 +5,8 @@
  */
 package Business.Enterprise;
 
-
+import Business.Organization.Organization;
+import Business.Role.Role;
 
 import java.util.ArrayList;
 
@@ -13,9 +14,16 @@ import java.util.ArrayList;
  *
  * @author vinithiteshharsora
  */
-public class DistributorEnterprise {
+    public class DistributorEnterprise extends Enterprise {
     
+    public DistributorEnterprise(String name){
+        super(name,EnterpriseType.Distributor);
+    }
     
+
+    public ArrayList<Role> getSupportedRole() {
+        return null;
+    }
     }
     
 

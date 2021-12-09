@@ -15,6 +15,7 @@ import java.util.Date;
  */
 public class WorkRequest {
     
+    //Work request details
     private String message;
     private UserAccount sender;
     private UserAccount receiver;
@@ -23,7 +24,33 @@ public class WorkRequest {
     private Date resolveDate;
     private int quantity;
     private Vaccine vaccine;
+    private static int id = 0;
+    
+    //Constructor
+    public WorkRequest(){
+        requestDate = new Date();
+        WorkRequest.id++;
+    }
+    //Constructor with params
+    public WorkRequest(String message, UserAccount sender, UserAccount receiver, String status, Date requestDate, Date resolveDate, int quantity, Vaccine vaccine) {
+        this.message = message;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.status = status;
+        this.requestDate = requestDate;
+        this.resolveDate = resolveDate;
+        this.quantity = quantity;
+        this.vaccine = vaccine;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getMessage() {
         return message;
     }
@@ -88,7 +115,10 @@ public class WorkRequest {
         this.vaccine = vaccine;
     }
     
-    
+    @Override 
+    public String toString(){
+        return this.status;
+    }
     
     
 }

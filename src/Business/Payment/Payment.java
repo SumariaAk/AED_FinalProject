@@ -10,6 +10,7 @@ package Business.Payment;
  * @author akash
  */
 public class Payment {
+    //Payment details
     private String paymentId;
     private double amount;
     private String HospitalName;

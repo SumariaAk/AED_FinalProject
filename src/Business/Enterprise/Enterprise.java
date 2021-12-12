@@ -13,6 +13,8 @@ import Business.Organization.OrganizationDirectory;
  *
  * @author vinithhiteshharsora
  */
+
+//Initializing abstract class  Enterprise extends Organization
 public abstract class  Enterprise extends Organization{
     
     private String enterpriseName;
@@ -47,7 +49,7 @@ public abstract class  Enterprise extends Organization{
     }
     
     
-    
+   //Defining the Enterprises 
     public enum EnterpriseType
     {
         Hospital ("Hospital"),
@@ -69,10 +71,7 @@ public abstract class  Enterprise extends Organization{
         public String toString() {
             return value;
         }
-        
-        
-        
+              
     }
-    
-    
+ 
 }

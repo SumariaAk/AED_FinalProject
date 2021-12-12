@@ -15,6 +15,8 @@ import java.util.ArrayList;
  *
  * @author vinithhiteshharsora
  */
+
+//Initializing Enterprise Directory class
 public class EnterpriseDirectory {
     private ArrayList<Enterprise> enterpriseDirectory;
 
@@ -30,12 +32,11 @@ public class EnterpriseDirectory {
         this.enterpriseDirectory = enterpriseDirectory;
     }
     
-    //add enterprise 
+    
     public Enterprise addEnterprise(String name, Enterprise.EnterpriseType type){
         
         Enterprise enterprise = null;
         
-        //based on the enterprise type, creae the enterprise
         
         if(type == Enterprise.EnterpriseType.Hospital){
             

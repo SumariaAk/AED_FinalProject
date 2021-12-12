@@ -13,6 +13,8 @@ import java.util.ArrayList;
  *
  * @author vinithhiteshharsora
  */
+
+//Initializing  class  LocalHealthDepartment extends Enterprise
 public class LocalHealthDepartment extends Enterprise {
 
     public LocalHealthDepartment(String stateName) {

@@ -1,50 +1,39 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.UserAccount;
 
-import Business.Employee.Employee;
+import Business.Person.Person;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
-
 
 /**
  *
  * @author vinithiteshharsora
  */
+//Initializing Useraccount class with specific variables and Workqueue request
 public class UserAccount {
     
-    private String username;
+    private String uname;
     private String password;
-    private Employee employee;
+    private Person person;
     private Role role;
     private WorkQueue workQueue;
 
-    public Role getRole() {
-        return role;
+    public UserAccount() {
+        workQueue = new WorkQueue();
     }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public WorkQueue getWorkQueue() {
-        return workQueue;
-    }
-
-    public void setWorkQueue(WorkQueue workQueue) {
-        this.workQueue = workQueue;
-    }
-
-
+    
+    
+    //getters ans setters for the above variables
+    
     public String getUsername() {
-        return username;
+        return uname;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.uname = username;
     }
 
     public String getPassword() {
@@ -55,16 +44,33 @@ public class UserAccount {
         this.password = password;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Role getRole() {
+        return role;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setPerson(Person employee) {
+        this.person = employee;
     }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    
+    
     @Override
     public String toString() {
-        return username;
+        return uname;
     }
+    
+    
+    
 }

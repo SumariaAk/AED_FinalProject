@@ -1,11 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.UserAccount;
 
-import Business.Employee.Employee;
+import Business.Person.Person;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -13,12 +12,14 @@ import java.util.ArrayList;
  *
  * @author vinithiteshharsora
  */
+
+//INitializing Useraccount DIrectory class
 public class UserAccountDirectory {
     
     private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
-        userAccountList = new ArrayList();
+        userAccountList = new ArrayList<>();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
@@ -33,27 +34,29 @@ public class UserAccountDirectory {
         return null;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(username);
-        userAccount.setPassword(password);
-        userAccount.setEmployee(employee);
-        userAccount.setRole(role);
-        userAccountList.add(userAccount);
-        return userAccount;
+    public UserAccount createUserAccount(String username, String password, Person employee, Role role){
+        UserAccount uA = new UserAccount();
+        uA.setUsername(username);
+        uA.setPassword(password);
+        uA.setPerson(employee);
+        uA.setRole(role);
+        userAccountList.add(uA);
+        return uA;
     }
     
+    public void removeUserAccount(UserAccount userAccount){
+        
+        userAccountList.remove(userAccount);
+    }
     
-    public boolean checkIfUsernameIsUnique(String username){
-        for (UserAccount ua : userAccountList){
-            if (ua.getUsername().equals(username))
-                return false;
+    public boolean checkIfUserAccountExists(String username){
+        
+        for(UserAccount ua: userAccountList){
+            if(ua.getUsername().equals(username))
+            return true;
         }
-        return true;
+        return false;
     }
     
-    public void deleteUserAccount(UserAccount userAccount){
-        userAccountList.remove(userAccount); 
-    }
     
 }

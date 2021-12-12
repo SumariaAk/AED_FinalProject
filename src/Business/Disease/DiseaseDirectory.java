@@ -12,6 +12,8 @@ import java.util.ArrayList;
  *
  * @author vinithhiteshharsora
  */
+
+//Calling DiseaseDirectory Class
 public class DiseaseDirectory {
     
     private ArrayList<Disease> diseaseDirectory;

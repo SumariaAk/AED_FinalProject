@@ -12,12 +12,14 @@ import java.util.Date;
  *
  * @author vinithhiteshharsora
  */
+//initializing Disease class with some variables
 public class Disease {
     
     private String diseaseCode;
     private String diseaseName;
     private Date lastUpdatedTime;
 
+    //initializing getter and setter for Disease class
     public String getDiseaseCode() {
         return diseaseCode;
     }

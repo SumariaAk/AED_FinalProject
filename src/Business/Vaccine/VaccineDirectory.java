@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Business.Vaccine;
 
 import java.util.ArrayList;
@@ -11,27 +12,38 @@ import java.util.ArrayList;
  *
  * @author akash
  */
+
+//Crating class VaccineDirectory
 public class VaccineDirectory {
     
-    //Arraylist
-    private ArrayList<Vaccine> vaccineDirectory;
-    //Constructor
-    public VaccineDirectory(){
-        vaccineDirectory = new ArrayList<Vaccine>();
-    }
-    
-    public ArrayList<Vaccine> getVaccineDirectory() {
-        return vaccineDirectory;
+    private ArrayList<Vaccine> vaccineCatalog;
+
+    public VaccineDirectory() {
+        
+        vaccineCatalog = new ArrayList<>();
     }
 
-    public void setVaccineDirectory(ArrayList<Vaccine> vaccineDirectory) {
-        this.vaccineDirectory = vaccineDirectory;
+    public ArrayList<Vaccine> getVaccineCatalog() {
+        return vaccineCatalog;
+    }
+
+    public void setVaccineCatalog(ArrayList<Vaccine> vaccineCatalog) {
+        this.vaccineCatalog = vaccineCatalog;
     }
     
-    public Vaccine addVaccineDirectoy() {
-        Vaccine v = new Vaccine();
-        vaccineDirectory.add(v);
-        return v;
+    public Vaccine addNewVaccineDefinition(){
+        
+        Vaccine newVaccine = new Vaccine();
+        vaccineCatalog.add(newVaccine);
+        return newVaccine;
+        
     }
+    
+    public void removeVaccineDefinition(Vaccine vaccine){
+        
+        vaccineCatalog.remove(vaccine);
+    }
+    
+    
     
 }

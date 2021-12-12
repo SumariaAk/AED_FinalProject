@@ -13,6 +13,7 @@ import java.util.ArrayList;
  *
  * @author akash
  */
+//Initializing Clinic Class
 public class Clinic {
 
     private String clinicName;
@@ -39,7 +40,9 @@ public class Clinic {
     public void setAdministeredVaccineList(ArrayList<AdministeredVaccineDetails> administeredVaccineDetails) {
         this.administeredVaccineDetails = administeredVaccineDetails;
     }
-
+    
+    //Creating getters and setters
+    
     public String getClinicName() {
         return clinicName;
     }
@@ -83,26 +86,26 @@ public class Clinic {
     }
 
     public int getTotalAdministeredVaccines() {
-        int total = 0;
+        int sum = 0;
         if (administeredVaccineDetails != null) {
             for (AdministeredVaccineDetails vaccine : administeredVaccineDetails) {
-                total = total + 1;
+                sum = sum + 1;
             }
 
         }
 
-        return total;
+        return sum;
 
     }
 
     public int getTotalVaccinesFailed() {
-        int total = 0;
+        int sum = 0;
         if (administeredVaccineDetails != null) {
-            for (AdministeredVaccineDetails vaccine : administeredVaccineDetails) {
-                if (vaccine != null) {
-                    if (vaccine.getInjectionStatus() != null) {
-                        if (vaccine.getInjectionStatus().equalsIgnoreCase("Fail")) {
-                            total = total + 1;
+            for (AdministeredVaccineDetails av : administeredVaccineDetails) {
+                if (av != null) {
+                    if (av.getshotstatus()!= null) {
+                        if (av.getshotstatus().equalsIgnoreCase("Fail")) {
+                            sum = sum + 1;
                         }
                     }
                 }
@@ -110,20 +113,20 @@ public class Clinic {
 
         }
 
-        return total;
+        return sum;
 
     }
     
     public int getTotalStoredVaccines() {
-        int total = 0;
+        int sum = 0;
         if (vaccineDetails != null) {
-            for (VaccineDetails vaccine : vaccineDetails) {
-                total = total + vaccine.getAvailablity();
+            for (VaccineDetails vd : vaccineDetails) {
+                sum = sum + vd.getAvailablity();
             }
-            total = total + getTotalAdministeredVaccines();
+            sum = sum + getTotalAdministeredVaccines();
         }
 
-        return total;
+        return sum;
 
     }
 

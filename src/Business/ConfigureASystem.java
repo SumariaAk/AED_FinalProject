@@ -15,12 +15,10 @@ import Business.UserAccount.UserAccount;
 public class ConfigureASystem {
     
     public static EcoSystem configure(){
-        
+        //Creating Ecosystem
         EcoSystem business = EcoSystem.getInstance();
         Person person = null;
-     
-        //create the user account
-        //create the system admin
+        //Creating sysadmin user account
         UserAccount sysAdmin = business.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", person, new SystemAdminRole());       
         return business;
     }

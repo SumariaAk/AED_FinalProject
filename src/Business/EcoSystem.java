@@ -7,7 +7,6 @@ package Business;
 import Business.Disease.DiseaseDirectory;
 import Business.NationalEnterprise.CDC;
 import Business.NationalEnterprise.Distributor;
-import Business.NationalEnterprise.Manufacturer;
 import Business.NationalEnterprise.ManufacturerDirectory;
 import Business.Network.StateNetwork;
 import Business.Organization.Organization;
@@ -22,6 +21,8 @@ import java.util.ArrayList;
  *
  * @author akash
  */
+
+//Definig Ecosystem Class
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
@@ -49,7 +50,7 @@ public class EcoSystem extends Organization{
       this.stateDirectory = new ArrayList<StateNetwork>();
       cdc = new CDC("CDC");
       manufacturerDirectory = new ManufacturerDirectory();
-      distributor = new Distributor("National Vaccine Distributor");
+      distributor = new Distributor("Vaccine Distributor");
       vaccineDirectory = new VaccineDirectory();
       diseaseDirectory = new DiseaseDirectory();
       
@@ -59,11 +60,11 @@ public class EcoSystem extends Organization{
         return business;
     }
 
-    public VaccineDirectory getVaccineCatalog() {
+    public VaccineDirectory getVaccineDirectory() {
         return vaccineDirectory;
     }
 
-    public DiseaseDirectory getDiseaseCatalog() {
+    public DiseaseDirectory getDiseaseDirectory() {
         return diseaseDirectory;
     }
 
@@ -98,9 +99,7 @@ public class EcoSystem extends Organization{
         
         stateDirectory.remove(state);
     }
-    
-    
-
+ 
     @Override
     public ArrayList<Role> getSupportedRole() {
        ArrayList<Role> roleList = new ArrayList<Role>();

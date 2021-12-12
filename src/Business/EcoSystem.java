@@ -1,85 +1,112 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business;
 
-import Business.Network.Network;
-import Business.Organization.CdcOrganization;
+import Business.Disease.DiseaseDirectory;
+import Business.NationalEnterprise.CDC;
+import Business.NationalEnterprise.Distributor;
+import Business.NationalEnterprise.Manufacturer;
+import Business.NationalEnterprise.ManufacturerDirectory;
+import Business.Network.StateNetwork;
 import Business.Organization.Organization;
 import Business.Role.Role;
-import Business.Role.SystemAdmin;
+import Business.Role.SystemAdminRole;
 import Business.Vaccine.VaccineDirectory;
 import java.util.ArrayList;
 
+
+
 /**
  *
- * @author DELL
+ * @author akash
  */
 public class EcoSystem extends Organization{
+    
     private static EcoSystem business;
-    private ArrayList<Network> networkList;
-    private static Organization cdcOrganization;
-    private VaccineDirectory vaccinedirectory;
-
-    public ArrayList<Network> getNetworkList() {
-        return networkList;
-    }
-
-    public void setNetworkList(ArrayList<Network> networkList) {
-        this.networkList = networkList;
-    }
-
-    public static Organization getCdcOrganization() {
-        return cdcOrganization;
-    }
-
-    public static void setCdcOrganization(Organization cdcOrganization) {
-        EcoSystem.cdcOrganization = cdcOrganization;
-    }
-
-    public VaccineDirectory getVaccinedirectory() {
-        return vaccinedirectory;
-    }
-
-    public void setVaccinedirectory(VaccineDirectory vaccinedirectory) {
-        this.vaccinedirectory = vaccinedirectory;
-    }
     
+    private ArrayList<StateNetwork> stateDirectory;
+    private CDC cdc;
+    private ManufacturerDirectory manufacturerDirectory;
+    private Distributor distributor;
+    private VaccineDirectory vaccineDirectory;
+    private DiseaseDirectory diseaseDirectory;
     
+  
     
     public static EcoSystem getInstance(){
-        if(business==null){
-            business=new EcoSystem();
-            cdcOrganization=new CdcOrganization();
+        if (business == null){
+            business = new EcoSystem();
         }
         return business;
+        
+    }
+
+    private EcoSystem() {
+        super(null); 
+      
+      this.stateDirectory = new ArrayList<StateNetwork>();
+      cdc = new CDC("CDC");
+      manufacturerDirectory = new ManufacturerDirectory();
+      distributor = new Distributor("National Vaccine Distributor");
+      vaccineDirectory = new VaccineDirectory();
+      diseaseDirectory = new DiseaseDirectory();
+      
+    }
+
+    public static EcoSystem getBusiness() {
+        return business;
+    }
+
+    public VaccineDirectory getVaccineCatalog() {
+        return vaccineDirectory;
+    }
+
+    public DiseaseDirectory getDiseaseCatalog() {
+        return diseaseDirectory;
+    }
+
+    
+
+    public ArrayList<StateNetwork> getStateList() {
+        return stateDirectory;
+    }
+
+    public CDC getCdc() {
+        return cdc;
+    }
+
+    public ManufacturerDirectory getManufacturerDirectory() {
+        return manufacturerDirectory;
+    }
+
+    public Distributor getDistributor() {
+        return distributor;
     }
     
-    public Network createAndAddNetwork(){
-        Network network=new Network();
-        networkList.add(network);
-       
-        return network;
+    
+    public StateNetwork addNewState(String name){
+        
+        StateNetwork state = new StateNetwork();
+        state.setStateName(name);
+        stateDirectory.add(state);
+        return state;
     }
     
-    private EcoSystem(){
-        super(null);
-       System.out.println("ecosystem constructor called");
-        networkList = new ArrayList<Network>();
-        vaccinedirectory = new VaccineDirectory();
-        cdcOrganization=new CdcOrganization();
-    }
-    
-    
-    public boolean checkIfUserIsUnique(String userName){
-        if(!this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
-            return false;
-        }
-        return true;
+    public void removeState(StateNetwork state){
+        
+        stateDirectory.remove(state);
     }
     
     
-    
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+       ArrayList<Role> roleList = new ArrayList<Role>();
+       roleList.add(new SystemAdminRole());
+       return roleList;
+    }
+
+   
 }

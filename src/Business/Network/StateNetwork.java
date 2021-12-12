@@ -13,6 +13,8 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
+
+//Initializing Class StateNetwork
 public class StateNetwork {
     
     private ArrayList<CityNetwork> cityList;
@@ -72,10 +74,10 @@ public class StateNetwork {
     
     public CityNetwork addNewCity(String name){
         
-        CityNetwork newCity = new CityNetwork();
-        newCity.setName(name);
-        cityList.add(newCity);
-        return newCity;
+        CityNetwork cn = new CityNetwork();
+        cn.setName(name);
+        cityList.add(cn);
+        return cn;
         
     }
     
@@ -84,42 +86,48 @@ public class StateNetwork {
         cityList.remove(city);
     }
     
+  //Dispalys number of vaccines administered in State
+    
     public int getTotalVaccinesAdministeredInState(){
-        int total = 0;
+        int sum = 0;
         if(cityList != null)
         {
             for(CityNetwork city: cityList)
             {
-                total= total+city.getTotalVaccinesAdministeredInCity();
+                sum= sum+city.getTotalVaccinesAdministeredInCity();
             }
         }
-        return total;
+        return sum;
 
     }
     
+     //Dispalys number of failed vaccines administered in State
+    
      public int getTotalFailedVaccinesInState(){
-        int total = 0;
+        int sum = 0;
         if(cityList != null)
         {
-            for(CityNetwork city: cityList)
+            for(CityNetwork c: cityList)
             {
-                total= total+city.getTotalFailedVaccinesInCity();
+                sum= sum+c.getTotalFailedVaccinesInCity();
             }
         }
-        return total;
+        return sum;
 
     }
      
+     //Dispalys number of failed vaccines distributed in State
+     
       public int getTotalVaccinesDistributedInState(){
-        int total = 0;
+        int sum = 0;
         if(cityList != null)
         {
-            for(CityNetwork city: cityList)
+            for(CityNetwork c: cityList)
             {
-                total= total+city.getTotalVaccinesDistributedInCity();
+                sum= sum+c.getTotalVaccinesDistributedInCity();
             }
         }
-        return total;
+        return sum;
         
     }
 

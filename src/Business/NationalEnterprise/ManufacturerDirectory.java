@@ -12,34 +12,36 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
+
+//Initializing class ManufacturerDirectory
 public class ManufacturerDirectory {
     
-    private ArrayList<Manufacturer> manufacturerList;
+    private ArrayList<Manufacturer> manufacturerDirectory;
 
     public ManufacturerDirectory() {
         
-        manufacturerList = new ArrayList<>();
+        manufacturerDirectory = new ArrayList<>();
         
     }
 
-    public ArrayList<Manufacturer> getManufacturerList() {
-        return manufacturerList;
+    public ArrayList<Manufacturer> getManufacturerDirectory() {
+        return manufacturerDirectory;
     }
 
-    public void setManufacturerList(ArrayList<Manufacturer> manufacturerList) {
-        this.manufacturerList = manufacturerList;
+    public void setManufacturerDirectory(ArrayList<Manufacturer> manufacturerDirectory) {
+        this.manufacturerDirectory = manufacturerDirectory;
     }
     
     public Manufacturer addNewManufacturer(String name){
         
-        Manufacturer newManufacturer = new Manufacturer(name);
-        manufacturerList.add(newManufacturer);
-        return newManufacturer;  
+        Manufacturer nm = new Manufacturer(name);
+        manufacturerDirectory.add(nm);
+        return nm;  
     }
     
-    public void removeManufacturer(Manufacturer manufacturer){
+    public void removeManufacturer(Manufacturer m){
         
-        manufacturerList.remove(manufacturer);
+        manufacturerDirectory.remove(m);
     }
     
     

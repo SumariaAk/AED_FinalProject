@@ -14,6 +14,8 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
+
+//Initializing class Distributor extends Enterprise
 public class Distributor extends Enterprise{
 
     public Distributor(String name) {

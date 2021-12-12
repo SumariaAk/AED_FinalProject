@@ -1,74 +1,112 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.Organization;
 
-import Business.Employee.EmployeeDirectory;
+import Business.Person.PersonDirectory;
+import Business.Order.OrderHistory;
+import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
  *
  * @author DELL
  */
+
+//Initializing our abstract class Organization
 public abstract class Organization {
-    private String OrganizationName;
-    private int OrganizationId;
-    private static int counter = 1001;
-    private EmployeeDirectory employeeDirectory;
+
+    private String name;
+    private WorkQueue workQueue;
+    private PersonDirectory personDirectory;
     private UserAccountDirectory userAccountDirectory;
+    private int organizationID;
+    private OrderHistory orderCatalog;
     
-    public enum Type{
-        
-        Admin("Admin Organization"),
-        Inventory("Inventory Organization"),
-        Lab("Lab Organization"),
-        Doctor("Doctor Organization"),
-        Lhd("Lhd Organization"),
-        Transportation("Transportation Organization"),
-        Dealer("Dealer Organization"),
-        Logistic("Logistic Organization"),
-        Hospital("Hospital Organization"),
-        Cdc("Cdc Organization");
-        
-        private final String value;
-        
-        private Type(String value) {
+    private static int counter;
+    
+    //Here are the below organizations that we are going to use in this project
+    
+    public enum OrganizationType{
+        EnterpriseAdminOrg("Enterprise Admin Organization") ,
+        CDCOrg ("CDC Organization"),
+           ManufactureOrg("Manufacture Organization"),
+           DistributorOrg("Distributor Organization"),
+           LocalHealthDepartmentOrg("Local Health Department"),
+           HospitalOrg("Hospital Organization"),
+           PatientOrganization("Patient Organization"),
+           MedicalOrganization("Medical Organization"),
+           ClinicOrganization("Clinic Organization");
+        private String value;
+        private OrganizationType(String value) {
             this.value = value;
         }
-        
         public String getValue() {
             return value;
         }
+
     }
-        
+
     public Organization(String name) {
-        this.OrganizationName = name;
-        this.employeeDirectory = new EmployeeDirectory();
-        this.userAccountDirectory = new UserAccountDirectory();
-        this.OrganizationId = counter++;
+        this.name = name;
+        workQueue = new WorkQueue();
+        personDirectory = new PersonDirectory();
+        userAccountDirectory = new UserAccountDirectory();
+        orderCatalog = new OrderHistory();
+        organizationID = counter;
+        ++counter;
     }
 
-    public String getOrganizationName() {
-        return OrganizationName;
+    public OrderHistory getOrderCatalog() {
+        return orderCatalog;
     }
 
-    public void setOrganizationName(String OrganizationName) {
-        this.OrganizationName = OrganizationName;
+    public void setOrderCatalog(OrderHistory orderCatalog) {
+        this.orderCatalog = orderCatalog;
     }
+    
+    
 
-    public int getOrganizationId() {
-        return OrganizationId;
-    }
-
-    public EmployeeDirectory getEmployeeDirectory() {
-        return employeeDirectory;
-    }
-
+    public abstract ArrayList<Role> getSupportedRole();
+    
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
+    }
+
+    public int getOrganizationID() {
+        return organizationID;
+    }
+
+    public PersonDirectory getPersonDirectory() {
+        return personDirectory;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
+
+    
+    
+    
+    
+    @Override
+    public String toString() {
+        return name;
     }
     
     

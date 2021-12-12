@@ -16,6 +16,7 @@ import Business.Organization.Organization;
  *
  * @author DELL
  */
+//Initializing class CityNetwork for fetching City Name
 public class CityNetwork {
     
     private EnterpriseDirectory enterpriseDirectory;
@@ -47,22 +48,23 @@ public class CityNetwork {
         return cityName; 
     }
     
+    //displays number of vaccinesadministerdin city
     public int getTotalVaccinesAdministeredInCity()
     {
-        int total = 0;
+        int sum = 0;
         if(enterpriseDirectory != null)
         {
             for(Enterprise enterprise: enterpriseDirectory.getEnterpriseDirectory())
             {
                 if( enterprise instanceof HospitalEnterprise)
                 {
-                    HospitalEnterprise hospital = (HospitalEnterprise)enterprise;
-                    for(Organization org : hospital.getOrganizationDirectory().getOrganizationList())
+                    HospitalEnterprise he = (HospitalEnterprise)enterprise;
+                    for(Organization org : he.getOrganizationDirectory().getOrganizationList())
                     {
                         if(org instanceof HospitalOrganization)
                         {
-                            HospitalOrganization hospOrg = (HospitalOrganization)org;
-                            total = total + hospOrg.getClinic().getTotalAdministeredVaccines();
+                            HospitalOrganization ho = (HospitalOrganization)org;
+                            sum = sum + ho.getClinic().getTotalAdministeredVaccines();
                         }
                     }
                 }
@@ -70,26 +72,26 @@ public class CityNetwork {
         }
         
     
-    return total;
+    return sum;
     
 }
-    
+    //displays number of failed vaccines in city
     public int getTotalFailedVaccinesInCity()
     {
-        int total = 0;
+        int sum = 0;
         if(enterpriseDirectory != null)
         {
             for(Enterprise enterprise: enterpriseDirectory.getEnterpriseDirectory())
             {
                 if( enterprise instanceof HospitalEnterprise)
                 {
-                    HospitalEnterprise hospital = (HospitalEnterprise)enterprise;
-                    for(Organization org : hospital.getOrganizationDirectory().getOrganizationList())
+                    HospitalEnterprise he = (HospitalEnterprise)enterprise;
+                    for(Organization org : he.getOrganizationDirectory().getOrganizationList())
                     {
                         if(org instanceof HospitalOrganization)
                         {
-                            HospitalOrganization hospOrg = (HospitalOrganization)org;
-                            total = total + hospOrg.getClinic().getTotalVaccinesFailed();
+                            HospitalOrganization ho = (HospitalOrganization)org;
+                            sum = sum + ho.getClinic().getTotalVaccinesFailed();
                         }
                     }
                 }
@@ -97,26 +99,27 @@ public class CityNetwork {
         }
         
     
-    return total;
+    return sum;
     
 }
     
+    //displays number of distributed vaccines in city
     public int getTotalVaccinesDistributedInCity()
     {
-        int total = 0;
+        int sum = 0;
         if(enterpriseDirectory != null)
         {
             for(Enterprise enterprise: enterpriseDirectory.getEnterpriseDirectory())
             {
                 if( enterprise instanceof HospitalEnterprise)
                 {
-                    HospitalEnterprise hospital = (HospitalEnterprise)enterprise;
-                    for(Organization org : hospital.getOrganizationDirectory().getOrganizationList())
+                    HospitalEnterprise he = (HospitalEnterprise)enterprise;
+                    for(Organization org : he.getOrganizationDirectory().getOrganizationList())
                     {
                         if(org instanceof HospitalOrganization)
                         {
-                            HospitalOrganization hospOrg = (HospitalOrganization)org;
-                            total = total + hospOrg.getClinic().getTotalStoredVaccines();
+                            HospitalOrganization ho = (HospitalOrganization)org;
+                            sum = sum + ho.getClinic().getTotalStoredVaccines();
                         }
                     }
                 }
@@ -124,7 +127,7 @@ public class CityNetwork {
         }
         
     
-    return total;
+    return sum;
     
 }
     

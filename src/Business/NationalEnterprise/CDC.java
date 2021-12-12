@@ -7,7 +7,6 @@
 package Business.NationalEnterprise;
 
 import Business.Enterprise.Enterprise;
-import Business.Organization.Organization;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -15,6 +14,8 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
+
+//Initializing class CDC extends Enterprise
 public class CDC extends Enterprise{
 
     public CDC(String name) {

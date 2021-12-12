@@ -14,6 +14,8 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
+
+//Initializing class Manufacturer extends Enterprise
 public class Manufacturer extends Enterprise {
     
     

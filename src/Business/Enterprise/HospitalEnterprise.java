@@ -3,21 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Business.Enterprise;
 
+import Business.Order.OrderHistory;
 import Business.Role.Role;
 import java.util.ArrayList;
 
 /**
  *
- * @author vinithiteshharsora
+ * @author vinithhiteshharsora
  */
+
+//Initializing  class  HospitalEnterprise extends Organization
 public class HospitalEnterprise extends Enterprise {
     
-    public HospitalEnterprise(String name){
-        super(name,Enterprise.EnterpriseType.Hospital);
+    private OrderHistory orderHistory;
+    
+    public HospitalEnterprise(String name) {
+        
+        super(name, EnterpriseType.Hospital);
+        this.orderHistory = new OrderHistory();
     }
 
+    public OrderHistory getOrderHistory() {
+        return orderHistory;
+    }
+    
+    @Override
     public ArrayList<Role> getSupportedRole() {
         return null;
     }

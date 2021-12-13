@@ -1,34 +1,56 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.Role;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.StateNetwork;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
- * @author akash
+ * @author DELL
  */
-public class Role {
+
+//Initializing our abstract Role class considerng the below roles in this project
+public abstract class Role {
+    
     public enum RoleType{
-        Admin("Admin"),
-        Doctor("Doctor"),
-        InventoryManager("Inventory Manager"),
-        LabAssistant("Lab Assistant"),
-        LHDLead("LHD Lead"),
-        DeliveryPerson("Delivery Person"),
+        EnterpriseAdmin("Enterprise Admin"),
+        CDCEmployee("CDC Employee"),
+        Distributor("Distributor"),
         Provider("Provider"),
-        Logistics("Logistics"),
-        DeliveryManger("Delivery Manager");
+        Manufacturer("Manufacturer"),
+        Patient("Patient"),
+        LocalHealthDepartment("Local Health Department"),
+        MedicalOfficer("Medical Officer"),
+        ClinicProvider("Clinc Provider");
         
-        private final String value;
-        
+        private String value;
         private RoleType(String value){
             this.value = value;
         }
 
         public String getValue() {
-            return this.value;
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return value;
         }
     }
+    
+    public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Organization organization, EcoSystem business, StateNetwork state);
+
+    @Override
+    public String toString() {
+        return this.getClass().getName();
+    }
+    
+    
 }

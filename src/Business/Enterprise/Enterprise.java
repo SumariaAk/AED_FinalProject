@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Business.Enterprise;
 
 import Business.Organization.Organization;
@@ -10,59 +11,67 @@ import Business.Organization.OrganizationDirectory;
 
 /**
  *
- * @author vinithiteshharsora
+ * @author vinithhiteshharsora
  */
-public abstract class Enterprise extends Organization{
+
+//Initializing abstract class  Enterprise extends Organization
+public abstract class  Enterprise extends Organization{
     
+    private String enterpriseName;
     private EnterpriseType enterpriseType;
-    private String enterpriseId;
-
-    public String getEnterpriseId() {
-        return enterpriseId;
-    }
-
-    public void setEnterpriseId(String enterpriseId) {
-        this.enterpriseId = enterpriseId;
-    }
     private OrganizationDirectory organizationDirectory;
+  
+    
+    
+    public Enterprise (String name, EnterpriseType type){
+        super(name);
+        this.organizationDirectory = new OrganizationDirectory();
+        this.enterpriseType = type;
+        
+    }
 
-    public OrganizationDirectory getOrganizationDirectory() {
-        return organizationDirectory;
-    }
-    
-    public enum EnterpriseType{
-        Manufacturer("Manufacturer"),
-        Distributor("Distributor"),
-        Hospital("Hospital"),
-        DepartmentOfHealth("DepartmentOfHealth");
-        
-        private String value;
-        
-        private EnterpriseType(String value){
-            this.value=value;
-        }
-        public String getValue() {
-            return value;
-        }
-        @Override
-        public String toString(){
-            return value;
-        }
-    }
-    
     public EnterpriseType getEnterpriseType() {
         return enterpriseType;
     }
 
-    public void setEnterpriseType(EnterpriseType enterpriseType) {
-        this.enterpriseType = enterpriseType;
+    public OrganizationDirectory getOrganizationDirectory() {
+        return organizationDirectory;
+    }
+
+
+
+    public String getEnterpriseName() {
+        return enterpriseName;
+    }
+
+    public void setEnterpriseName(String enterpriseName) {
+        this.enterpriseName = enterpriseName;
     }
     
-    public Enterprise(String name,EnterpriseType type){
-        super(name);
-        this.enterpriseType=type;
-        organizationDirectory=new OrganizationDirectory();
+    
+   //Defining the Enterprises 
+    public enum EnterpriseType
+    {
+        Hospital ("Hospital"),
+        CDC("CDC"),
+        Manufacturer("Manufacturer"),
+        Distributor("Distributor"),
+        LocalHealthDepartment("Local Health Department");
+        private String value;
+        
+        private EnterpriseType(String value){
+            this.value = value;
+        }
+        
+        public String getValue(){
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+              
     }
+ 
 }
-    
-   

@@ -3,102 +3,66 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Business.Vaccine;
 
-import java.util.Date;
+import Business.Disease.Disease;
+import Business.Network.StateNetwork;
 
 /**
  *
  * @author akash
  */
-public class Vaccine {
 
-    //Vaccine details
-    private String name;
-    private float price;
-    private String description;
-    private Date expiryDate;
-    private int batch;
+//Creating CLass Vaccine
+public class Vaccine {
+    
     private String vaccineCode;
-    private String manufacturer;
-    private String code;
-    public String getVaccineCode(){
+    private String vaccineName;
+    private StateNetwork state;
+    private Disease disease;
+    
+
+    public Vaccine() {
+    }
+
+    public StateNetwork getState() {
+        return state;
+    }
+
+    public void setState(StateNetwork state) {
+        this.state = state;
+    }
+
+
+    public Disease getDisease() {
+        return disease;
+    }
+
+    public void setDisease(Disease disease) {
+        this.disease = disease;
+    }
+
+
+    public String getVaccineCode() {
         return vaccineCode;
     }
-    //Constructor
-    public Vaccine (String name, float price, Date expiryDate, int batch, String vaccineCode, String description) {
-        this.batch = batch;
-        this.price = price;
-        this.description = description;
-        this.expiryDate = expiryDate;
-        this.vaccineCode = vaccineCode;
-    }
+
     public void setVaccineCode(String vaccineCode) {
         this.vaccineCode = vaccineCode;
     }
 
-    public String getName() {
-        return name;
+    public String getVaccineName() {
+        return vaccineName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setVaccineName(String vaccineName) {
+        this.vaccineName = vaccineName;
     }
 
-    public float getPrice() {
-        return price;
+    @Override
+    public String toString() {
+        return vaccineCode;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setExpiryDate(Date expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
-    public int getBatch() {
-        return batch;
-    }
-
-    public void setBatch(int batch) {
-        this.batch = batch;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-    
-    public Vaccine(){
-    }
-        
-    @Override 
-    public String toString(){
-        return this.getName();
-    }
-  
 }

@@ -1,72 +1,69 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.Organization;
 
-import Business.Organization.Organization.Type;
+import Business.Organization.Organization.OrganizationType;
 import java.util.ArrayList;
 
 /**
  *
  * @author DELL
  */
+
+//INitializing class OrganizationDirectory
 public class OrganizationDirectory {
     
-    private ArrayList<Organization> organizationDirectory;
-    
+    private ArrayList<Organization> organizationList;
+
     public OrganizationDirectory() {
-        organizationDirectory = new ArrayList();
+        organizationList = new ArrayList<>();
     }
 
-    public ArrayList<Organization> getOrganizationDirectory() {
-        return organizationDirectory;
+    public ArrayList<Organization> getOrganizationList() {
+        return organizationList;
     }
-    
-    public Organization createOrganization(Type type){
+    //here we are creating organzations specified to the project
+    public Organization createOrganization(OrganizationType type){
         Organization organization = null;
-        if (type.getValue().equals(Type.Inventory.getValue())){
-            organization = new InventoryOrganization();
-            organizationDirectory.add(organization);
+        if (type.getValue().equals(OrganizationType.EnterpriseAdminOrg.getValue())){
+            organization = new EnterpriseAdminOrganization();
+            organizationList.add(organization);
         }
-        else if (type.getValue().equals(Type.Lab.getValue())){
-            organization = new LabOrganization();
-            organizationDirectory.add(organization);
+        else if (type.getValue().equals(OrganizationType.CDCOrg.getValue())){
+            organization = new CDCOrganization();
+            organizationList.add(organization);
         }
-        else if (type.getValue().equals(Type.Doctor.getValue())){
-            organization = new DoctorOrganization();
-            organizationDirectory.add(organization);
+        else if (type.getValue().equals(OrganizationType.DistributorOrg.getValue())){
+            organization = new DistributorOrganization();
+            organizationList.add(organization);
         }
-        else if (type.getValue().equals(Type.Lhd.getValue())){
-            organization = new LhdOrganization();
-            organizationDirectory.add(organization);
-        }
-        else if (type.getValue().equals(Type.Transportation.getValue())){
-            organization = new TransportationOrganization();
-            organizationDirectory.add(organization);
-        }
-        else if (type.getValue().equals(Type.Dealer.getValue())){
-            organization = new DealerOrganization();
-            organizationDirectory.add(organization);
-        }
-        else if (type.getValue().equals(Type.Logistic.getValue())){
-            organization = new LogisticOrganization();
-            organizationDirectory.add(organization);
-        }
-        else if (type.getValue().equals(Type.Hospital.getValue())){
+        else if (type.getValue().equals(OrganizationType.HospitalOrg.getValue())){
             organization = new HospitalOrganization();
-            organizationDirectory.add(organization);
+            organizationList.add(organization);
         }
-        else if (type.getValue().equals(Type.Cdc.getValue())){
-            organization = new CdcOrganization();
-            organizationDirectory.add(organization);
+        else if (type.getValue().equals(OrganizationType.ManufactureOrg.getValue())){
+            organization = new ManufactureOrganization();
+            organizationList.add(organization);
         }
+        else if (type.getValue().equals(OrganizationType.PatientOrganization.getValue())){
+            organization = new PatientOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.LocalHealthDepartmentOrg.getValue())){
+            organization = new LHDImmuneOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.ClinicOrganization.getValue())){
+            organization = new ClinicOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.MedicalOrganization.getValue())){
+            organization = new medicalOrganization();
+            organizationList.add(organization);}
+        
         
         return organization;
-        
-            
-        
     }
-    
 }
